@@ -1,10 +1,12 @@
+// Constants & Query Selectors
 const easyLevelLink = document.querySelector("#easy-level-link");
 const mediumLevelLink = document.querySelector("#medium-level-link");
 const hardLevelLink = document.querySelector("#hard-level-link");
 const mainContainer = document.querySelector(".main");
 const body = document.querySelector(".body");
+const pictureArrEasy = ["./images/easy/candy-floss.jpeg", "./images/easy/candy-floss.jpeg", "./images/easy/custard-cream.jpeg", "./images/easy/custard-cream.jpeg","./images/easy/doughnut.webp", "./images/easy/doughnut.webp", "./images/easy/jelly.jpeg", "./images/easy/jelly.jpeg", "./images/easy/macaron.jpeg", "./images/easy/macaron.jpeg", "./images/easy/pancakes.jpeg", "./images/easy/pancakes.jpeg"];
 
-// Reusable functions
+// Easy Level
 const renderEasyLevel = () => {
     body.classList.add("body-game--easy");
     body.classList.remove("body");
@@ -29,8 +31,19 @@ mainContainer.innerHTML =
 </section>
 <p class="game__status">Time: <br> Moves: </p>
 `
+let easyCardsArr = document.querySelectorAll(".game__container__card");
+
+easyCardsArr.forEach((card) => {
+    let randomNumber = Math.floor(Math.random()*(pictureArrEasy.length));
+    card.addEventListener("click", () => {
+        card.style.backgroundImage = `url("${pictureArrEasy[1]}")` 
+        console.log("on click event")
+    })
+    pictureArrEasy.splice(randomNumber,1);
+})
 }
 
+// Medium Level
 const renderMediumLevel = () => {
     body.classList.add("body-game--medium");
     body.classList.remove("body");
@@ -69,6 +82,7 @@ mainContainer.innerHTML =
 `
 }
 
+// Hard Level
 const renderHardLevel = () => {
     body.classList.add("body-game--hard");
     body.classList.remove("body");
@@ -110,30 +124,10 @@ mainContainer.innerHTML =
 <p class="game__status">Time: <br> Moves: </p>
 `
 }
-// Event Listeners - hover over levels list
-/* easyLevelLink.addEventListener("mouseenter", () => {
-    easyLevelLink.innerHTML = `<li class="main__list__item" id="easy-level-link"><i class="fa-solid fa-candy-cane"></i> Easy <i class="fa-solid fa-candy-cane"></li>`;
-})
-easyLevelLink.addEventListener("mouseleave", () => {
-    easyLevelLink.innerHTML = `<li class="main__list__item" id="easy-level-link">Easy</li>`;
-})
-mediumLevelLink.addEventListener("mouseenter", () => {
-    mediumLevelLink.innerHTML = `<li class="main__list__item" id="medium-level-link"><i class="fa-solid fa-cat"></i> Medium <i class="fa-solid fa-cat"></i> </li>`;
-})
-mediumLevelLink.addEventListener("mouseleave", () => {
-    mediumLevelLink.innerHTML = `<li class="main__list__item" id="medium-level-link">Medium</li>`;
-})
-hardLevelLink.addEventListener("mouseenter", () => {
-    hardLevelLink.innerHTML = `<li class="main__list__item" id="hard-level-link"><i class="fa-solid fa-hat-cowboy"></i> Hard <i class="fa-solid fa-hat-cowboy"></i></li>`;
-})
-hardLevelLink.addEventListener("mouseleave", () => {
-    hardLevelLink.innerHTML = `<li class="main__list__item" id="hard-level-link">Hard</li>`;
-}) */
-
-
+// Event listeners - select level
 easyLevelLink.addEventListener("click", renderEasyLevel);
 
-// Event listeners - select level
 mediumLevelLink.addEventListener("click", renderMediumLevel);
 
 hardLevelLink.addEventListener("click", renderHardLevel);
+
