@@ -5,43 +5,147 @@ const hardLevelLink = document.querySelector("#hard-level-link");
 const mainContainer = document.querySelector(".main");
 const body = document.querySelector(".body");
 const pictureArrEasy = ["./images/easy/candy-floss.jpeg", "./images/easy/candy-floss.jpeg", "./images/easy/custard-cream.jpeg", "./images/easy/custard-cream.jpeg","./images/easy/doughnut.webp", "./images/easy/doughnut.webp", "./images/easy/jelly.jpeg", "./images/easy/jelly.jpeg", "./images/easy/macaron.jpeg", "./images/easy/macaron.jpeg", "./images/easy/pancakes.jpeg", "./images/easy/pancakes.jpeg"];
+// add const for med and hard Arr
+let cardPack = [];
+let userChoices = [];
+let matchedCards = [];
 
-// Easy Level
-const renderEasyLevel = () => {
-    body.classList.add("body-game--easy");
+// reusable functions
+
+const renderGame = () => {
+
     body.classList.remove("body");
     mainContainer.classList.remove("main");
     mainContainer.classList.add("game");
-mainContainer.innerHTML = 
-`<h1 class="game__heading">Pairs</h1>
-<p class="game__subheading game__subheading">Level One</p>
-<section class="game__container game__container--easy">
-    <div class="game__container__card game__container__card--easy game__container__card--1"></div>
-    <div class="game__container__card game__container__card--easy game__container__card--2"></div>
-    <div class="game__container__card game__container__card--easy game__container__card--3"></div>
-    <div class="game__container__card game__container__card--easy game__container__card--4"></div>
-    <div class="game__container__card game__container__card--easy game__container__card--5"></div>
-    <div class="game__container__card game__container__card--easy game__container__card--6"></div>
-    <div class="game__container__card game__container__card--easy game__container__card--7"></div>
-    <div class="game__container__card game__container__card--easy game__container__card--8"></div>
-    <div class="game__container__card game__container__card--easy game__container__card--9"></div>
-    <div class="game__container__card game__container__card--easy game__container__card--10"></div>
-    <div class="game__container__card game__container__card--easy game__container__card--11"></div>
-    <div class="game__container__card game__container__card--easy game__container__card--12"></div>
-</section>
-<p class="game__status">Time: <br> Moves: </p>
-`
-let easyCardsArr = document.querySelectorAll(".game__container__card");
-
-easyCardsArr.forEach((card) => {
-    let randomNumber = Math.floor(Math.random()*(pictureArrEasy.length));
-    card.addEventListener("click", () => {
-        card.style.backgroundImage = `url("${pictureArrEasy[1]}")` 
-        console.log("on click event")
-    })
-    pictureArrEasy.splice(randomNumber,1);
-})
+    mainContainer.innerHTML = 
+    `<h1 class="game__heading">Pairs</h1>
+    <p class="game__subheading game__subheading">Level One</p>
+    <section class="game__container game__container--easy">
+       
+    </section>
+    <p class="game__status">Time: <br> Moves: </p>
+    `
+    // <div class="game__container__card game__container__card--easy game__container__card--1"></div>
+    // <div class="game__container__card game__container__card--easy game__container__card--2"></div>
+    // <div class="game__container__card game__container__card--easy game__container__card--3"></div>
+    // <div class="game__container__card game__container__card--easy game__container__card--4"></div>
+    // <div class="game__container__card game__container__card--easy game__container__card--5"></div>
+    // <div class="game__container__card game__container__card--easy game__container__card--6"></div>
+    // <div class="game__container__card game__container__card--easy game__container__card--7"></div>
+    // <div class="game__container__card game__container__card--easy game__container__card--8"></div>
+    // <div class="game__container__card game__container__card--easy game__container__card--9"></div>
+    // <div class="game__container__card game__container__card--easy game__container__card--10"></div>
+    // <div class="game__container__card game__container__card--easy game__container__card--11"></div>
+    // <div class="game__container__card game__container__card--easy game__container__card--12"></div>
 }
+
+const dealEasyCards = () => {
+    const gameContainer = document.querySelector(".game__container");
+    gameContainer.classList.add("game__container--easy");
+    cardPack = pictureArrEasy;
+    cardPack.forEach((card) => {
+        gameContainer.innerHTML += `<div class="game__container__card game__container__card--easy game__container__card--12"></div>`;
+    })
+}
+const dealMediumCards = () => {
+    const gameContainer = document.querySelector(".game__container");
+    gameContainer.classList.add("game__container--medium")
+    cardPack = pictureArrMedium;
+    cardPack.forEach((card) => {
+        gameContainer.innerHTML += `<div class="game__container__card game__container__card--medium"></div>`;
+    })
+}
+const dealHardCards = () => {
+    const gameContainer = document.querySelector(".game__container");
+    gameContainer.classList.add("game__container--hard")
+    cardPack = pictureArrHard;
+    cardPack.forEach((card) => {
+        gameContainer.innerHTML += `<div class="game__container__card game__container__card--hard"></div>`;
+    })
+}
+
+const renderEasyLevel = () => {
+    renderGame();
+    body.classList.add("body-game--easy");
+    dealEasyCards();
+}
+
+
+
+// Easy Level
+// const renderEasyLevel = () => {
+//     body.classList.add("body-game--easy");
+//     body.classList.remove("body");
+//     mainContainer.classList.remove("main");
+//     mainContainer.classList.add("game");
+// mainContainer.innerHTML = 
+// `<h1 class="game__heading">Pairs</h1>
+// <p class="game__subheading game__subheading">Level One</p>
+// <section class="game__container game__container--easy">
+//     <div class="game__container__card game__container__card--easy game__container__card--1"></div>
+//     <div class="game__container__card game__container__card--easy game__container__card--2"></div>
+//     <div class="game__container__card game__container__card--easy game__container__card--3"></div>
+//     <div class="game__container__card game__container__card--easy game__container__card--4"></div>
+//     <div class="game__container__card game__container__card--easy game__container__card--5"></div>
+//     <div class="game__container__card game__container__card--easy game__container__card--6"></div>
+//     <div class="game__container__card game__container__card--easy game__container__card--7"></div>
+//     <div class="game__container__card game__container__card--easy game__container__card--8"></div>
+//     <div class="game__container__card game__container__card--easy game__container__card--9"></div>
+//     <div class="game__container__card game__container__card--easy game__container__card--10"></div>
+//     <div class="game__container__card game__container__card--easy game__container__card--11"></div>
+//     <div class="game__container__card game__container__card--easy game__container__card--12"></div>
+// </section>
+// <p class="game__status">Time: <br> Moves: </p>
+// `
+// let easyCardsArr = document.querySelectorAll(".game__container__card");
+
+// easyCardsArr.forEach((card) => {
+//     const addUserChoice = () => {
+//         if (userChoices.length < 2) {
+//             userChoices.push(imgSrc);
+//         }  
+//     }
+//     const checkForMatch = () => {
+//         if (userChoices[0] == userChoices[1]) {
+//             return true
+//         } else {
+//             return false;
+//         }
+//     }
+//     let randomNumber = Math.floor(Math.random()*(pictureArrEasy.length));
+//     let imgSrc = pictureArrEasy[randomNumber];
+//     pictureArrEasy.splice(randomNumber,1);
+
+//     card.addEventListener("click", () => {
+//         // if this is the first choice, flip the card and add to choices array
+//         if (userChoices.length === 0 && matchedCards.includes(imgSrc) === false) {
+//             card.style.backgroundImage = `url("${imgSrc}")`
+//             addUserChoice();
+//             console.log(userChoices)
+//         // if it's the second choice, flip the card, add to the choices array and check whether the two card match
+//         } else if (userChoices.length === 1 && matchedCards.includes(imgSrc) === false) {
+//             card.style.backgroundImage = `url("${imgSrc}")`
+//             addUserChoice();
+//             console.log(userChoices)
+//             if (checkForMatch() === true) {
+//                 matchedCards.push(userChoices)
+//                 console.log("matchedCards")
+//             } else if (checkForMatch() === false){
+//                 card.style.backgroundImage = `url(./images/card-backgrounds/sweets-background.jpg)`
+//                 userChoices = [];
+//             }
+//         } 
+//         // else if (userChoices.length === 2 && matchedCards.includes(imgSrc) === false) {
+//         //     userChoices = userChoices[2];
+//         //     // need to flip both cards back to the background image if not a match, and empty the user choice array
+//         //     userChoices.style.backgroundImage = `url(./images/card-backgrounds/sweets-background.jpg)`
+//         //     userChoices[1].style.backgroundImage = `url(./images/card-backgrounds/sweets-background.jpg)`
+//         // }
+        
+//     })
+// })
+// }
+
 
 // Medium Level
 const renderMediumLevel = () => {
@@ -130,4 +234,3 @@ easyLevelLink.addEventListener("click", renderEasyLevel);
 mediumLevelLink.addEventListener("click", renderMediumLevel);
 
 hardLevelLink.addEventListener("click", renderHardLevel);
-
