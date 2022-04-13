@@ -1,0 +1,17 @@
+.game__container__card {
+    border: 2px solid $colour-black;   
+    background-size: cover;
+}
+
+.game__container__card--easy {
+    background-image: url(../images/card-backgrounds/sweets-background.jpg);
+}
+
+.game__container__card--medium {
+    background-image: url(../images/card-backgrounds/cat-background.jpeg);
+}
+
+.game__container__card--hard {
+    border: 2px solid $colour-bright-blue;   
+    background-image: url(../images/card-backgrounds/dolly-background.jpeg);
+}
