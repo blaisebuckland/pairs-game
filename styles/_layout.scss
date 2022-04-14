@@ -9,38 +9,210 @@ body {
 }
 
 .main {
-    height: 80%;
+    height: 70%;
+    max-height: 800px;
+    width: 80%;
+    max-width: 440px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center; 
-    text-align: center;
-    background-image: url(../images/frame.png);
-    background-size: 250px 450px;
-    background-repeat: no-repeat;
-    background-position: center;
+    border: 1px solid; 
+    border-image-slice: 200 200 200 200;
+    border-image-width: 35px;
+    border-image-outset: 20px;
+    border-image-repeat: stretch stretch;
+    border-image-source: url(../images/frame.png);
     &__heading {
-        margin-top: 15%;
-        font-size: 40px;
+        font-size: 35px;
     }
     &__subheading {
-        width: 40%;
         font-size: 22px;
+        margin: 0 7% 0 7%;
     }
     &__list {
         list-style: none;
-        margin-bottom: 15%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
         font-size: 22px;
         
         &__item {
-            font-size: 22px;
-            padding: 5px 0 5px 0;
+            padding: 2px 0 2px 0;
+            margin-top: 8px;
+            width: 120px;
+            font-size: 20px;
+            background-color: $colour-pale-pink;
+            border: 1px solid $colour-black;
+            border-radius: 5px;
+            box-shadow: #19191a17 0px 3px 12px;        
         }
         &__item:hover {
-            text-decoration: underline;
+            background-color: $colour-bright-pink;
+            color: $colour-white;
+            cursor: pointer;
+        }
+    }
+    @media screen and (min-width: 480px) {
+        &__heading {
+            font-size: 37px;
+        }
+        &__subheading {
+            font-size: 25px;
+        }
+        &__list {
+            font-size: 25px;
+            &__item {
+                width: 130px;
+                font-size: 20px;
+            }
+        }
+    }
+    @media screen and (min-width: 768px) {
+        &__heading {
+            font-size: 40px;
+        }
+    }
+    @media screen and (min-width: 991px) {
+        &__heading {
+            font-size: 56px;
+        }
+        &__subheading {
+            font-size: 30px;
+        }
+        &__list {
+            font-size: 30px;
+            &__item {
+                width: 140px;
+                font-size: 25px;
+            }
         }
     }
 }
+
+.game {
+    height:100%;
+    margin: 10% auto 10% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 5%;
+    &__heading {
+        margin-bottom: 5%;
+    }
+
+    &__subheading {
+        margin-bottom: 5%;
+    }
+    
+    &__container {
+        display: grid;
+        width: 80%;
+        &__card {
+            box-shadow: rgba(36, 34, 36, 0.35) 0px 5px 15px;
+        }
+    }
+
+    &__moves {
+        margin: 5% 0 5% 0;
+    }
+
+    &__container--easy {   
+        grid-gap: 18px;
+        grid-template-columns: repeat(3, 60px);
+        grid-template-rows: repeat(4, 60px);
+        @media screen and (min-width: 480px) {
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(4, 100px);
+        }
+        @media screen and (min-width: 768px) {
+            grid-template-columns: repeat(3, 120px);
+            grid-template-rows: repeat(4, 120px);
+            grid-gap: 20px;
+        }
+        @media screen and (min-width: 991px) {
+            grid-template-columns: repeat(4, 150px);
+            grid-template-rows: repeat(3, 150px);
+            grid-gap: 25px;
+        }
+    }
+    
+    &__container--medium {
+        grid-gap: 10px;
+        grid-template-columns: repeat(4, 60px);
+        grid-template-rows: repeat(6, 60px);
+        @media screen and (min-width: 480px) {
+            grid-template-columns: repeat(4, 70px);
+            grid-template-rows: repeat(6, 70px);
+        }
+        @media screen and (min-width: 768px) {
+            grid-template-columns: repeat(4, 90px);
+            grid-template-rows: repeat(6, 90px);
+            grid-gap: 20px;
+        }
+        @media screen and (min-width: 768px) {
+            grid-template-columns: repeat(6, 100px);
+            grid-template-rows: repeat(4, 100px);
+        }
+
+    }
+
+    &__container--hard {
+        grid-gap: 5px;
+        grid-template-columns: repeat(4, 40px);
+        grid-template-rows: repeat(7, 40px);
+        @media screen and (min-width: 480px) {
+            grid-template-columns: repeat(4, 45px);
+            grid-template-rows: repeat(7, 45px);
+        }
+        @media screen and (min-width: 768px) {
+            grid-template-columns: repeat(4, 70px);
+            grid-template-rows: repeat(7, 70px);
+            grid-gap: 10px;
+        }
+        @media screen and (min-width: 991px) {
+            grid-template-columns: repeat(7, 100px);
+            grid-template-rows: repeat(4, 100px);
+            grid-gap: 15px;
+        }
+    }
+    @media screen and (min-width: 480px) {
+        &__heading {
+            font-size: 30px;
+        }
+        &__subheading {
+            font-size: 25px;
+        }
+        &__moves {
+            font-size: 25px;
+        }
+    }
+    @media screen and (min-width: 768px) {
+        &__heading {
+            font-size: 40px;
+        }
+        &__subheading {
+            font-size: 25px;
+        }
+        &__moves {
+            font-size: 25px;
+        }
+    }
+    @media screen and (min-width: 991px) {
+        &__heading {
+            font-size: 56px;
+        }
+        &__subheading {
+            font-size: 30px;
+        }
+        &__moves {
+            font-size: 30px;
+        }
+    }
+}
+ 
+
 
 .body-game--easy {
     background-color: $colour-pale-pink;
@@ -54,75 +226,3 @@ body {
     background-color: $colour-bright-pink;
 }
 
-.game {
-    background: none;
-    &__heading {
-        text-align: center;
-
-    }
-    &__subheading {
-        text-align: center;
-    }
-
-    &__container {
-        display: grid;
-        height: 80%;
-        width: 80%;
-        grid-gap: 15px;
-
-        &__card {
-            border: 2px solid $colour-black;   
-            background-size: cover;
-        }
-
-        &__card--easy {
-            background-image: url(../images/card-backgrounds/sweets-background.jpg);
-        }
-
-        &__card--medium {
-            background-image: url(../images/card-backgrounds/cat-background.jpeg);
-        }
-
-        &__card--hard {
-            border: 2px solid $colour-bright-blue;   
-            background-image: url(../images/card-backgrounds/dolly-background.jpeg);
-        }
-    }
-    
-
-    &__container--easy {   
-        grid-template-columns: repeat(3, 60px);
-        grid-template-rows: repeat(4, 60px);
-        @media screen and (min-width: 991px) {
-            grid-template-columns: repeat(4, 60px);
-            grid-template-rows: repeat(3, 60px);
-        }
-    }
-    
-    &__container--medium {
-        grid-template-columns: repeat(4, 60px);
-        grid-template-rows: repeat(6, 60px);
-        @media screen and (min-width: 991px) {
-            grid-template-columns: repeat(6, 60px);
-            grid-template-rows: repeat(4, 60px);
-        }
-    }
-
-    &__container--hard {
-        grid-template-columns: repeat(4, 60px);
-        grid-template-rows: repeat(7, 60px);
-        @media screen and (min-width: 991px) {
-            grid-template-columns: repeat(7, 60px);
-            grid-template-rows: repeat(4, 60px);
-        }
-    }
-
-    &__status {
-        text-align: center;
-    }
-}
-i {
-    font-family: FontAwesome;
-    font-size: 16px;
-    font-style: normal;
-}

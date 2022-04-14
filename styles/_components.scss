@@ -4,14 +4,18 @@
 }
 
 .game__container__card--easy {
-    background-image: url(../images/card-backgrounds/sweets-background.jpg);
+    background-image: url(../images/card-backgrounds/sweets.jpg);
 }
 
 .game__container__card--medium {
-    background-image: url(../images/card-backgrounds/cat-background.jpeg);
+    background-image: url(../images/card-backgrounds/cat.jpeg);
 }
 
 .game__container__card--hard {
     border: 2px solid $colour-bright-blue;   
-    background-image: url(../images/card-backgrounds/dolly-background.jpeg);
+    background-image: url(../images/card-backgrounds/dolly.jpeg);
+}
+
+.disabled {
+    pointer-events: none;
 }
