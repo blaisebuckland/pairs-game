@@ -4,15 +4,16 @@ const mediumLevelLink = document.querySelector("#medium-level-link");
 const hardLevelLink = document.querySelector("#hard-level-link");
 const mainContainer = document.querySelector(".main");
 const body = document.querySelector(".body");
-const pictureArrEasy = ["./images/easy/candy-floss.jpeg", "./images/easy/candy-floss.jpeg", "./images/easy/custard-cream.jpeg", "./images/easy/custard-cream.jpeg","./images/easy/doughnut.webp", "./images/easy/doughnut.webp", "./images/easy/jelly.jpeg", "./images/easy/jelly.jpeg", "./images/easy/macaron.jpeg", "./images/easy/macaron.jpeg", "./images/easy/pancakes.jpeg", "./images/easy/pancakes.jpeg"];
-const pictureArrMedium = ["./images/medium/balinese.jpeg", "./images/medium/balinese.jpeg", "./images/medium/ballet.jpeg", "./images/medium/ballet.jpeg", "./images/medium/emmy.jpg", "./images/medium/emmy.jpg", "./images/medium/ginger.jpeg", "./images/medium/ginger.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/hiss.jpeg", "./images/medium/hiss.jpeg","./images/medium/liesl.jpg", "./images/medium/liesl.jpg", "./images/medium/maine-coon.jpeg", "./images/medium/maine-coon.jpeg", "./images/medium/moggy.webp", "./images/medium/moggy.webp", "./images/medium/ragdoll.jpeg", "./images/medium/ragdoll.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/tortoiseshell.jpeg", "./images/medium/tortoiseshell.jpeg"]
-const pictureArrHard = ["./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/dolly.png", "./images/hard/dolly.png", "./images/hard/great-balls-of-fire.jpeg", "./images/hard/great-balls-of-fire.jpeg",
+let pictureArrEasy = ["./images/easy/candy-floss.jpeg", "./images/easy/candy-floss.jpeg", "./images/easy/custard-cream.jpeg", "./images/easy/custard-cream.jpeg","./images/easy/doughnut.webp", "./images/easy/doughnut.webp", "./images/easy/jelly.jpeg", "./images/easy/jelly.jpeg", "./images/easy/macaron.jpeg", "./images/easy/macaron.jpeg", "./images/easy/pancakes.jpeg", "./images/easy/pancakes.jpeg"];
+let pictureArrMedium = ["./images/medium/balinese.jpeg", "./images/medium/balinese.jpeg", "./images/medium/ballet.jpeg", "./images/medium/ballet.jpeg", "./images/medium/emmy.jpg", "./images/medium/emmy.jpg", "./images/medium/ginger.jpeg", "./images/medium/ginger.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/hiss.jpeg", "./images/medium/hiss.jpeg","./images/medium/liesl.jpg", "./images/medium/liesl.jpg", "./images/medium/maine-coon.jpeg", "./images/medium/maine-coon.jpeg", "./images/medium/moggy.webp", "./images/medium/moggy.webp", "./images/medium/ragdoll.jpeg", "./images/medium/ragdoll.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/tortoiseshell.jpeg", "./images/medium/tortoiseshell.jpeg"]
+let pictureArrHard = ["./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/dolly.png", "./images/hard/dolly.png", "./images/hard/great-balls-of-fire.jpeg", "./images/hard/great-balls-of-fire.jpeg",
 "./images/hard/heartbreak-express.jpeg", "./images/hard/heartbreak-express.jpeg", "./images/hard/hello-im-dolly.jpeg", "./images/hard/hello-im-dolly.jpeg", "./images/hard/here-you-come-again.jpeg", "./images/hard/here-you-come-again.jpeg", "./images/hard/honky-tonk-angels.jpeg", "./images/hard/honky-tonk-angels.jpeg", "./images/hard/hungry-again.jpeg", "./images/hard/hungry-again.jpeg", "./images/hard/i-believe-in-you.jpeg", "./images/hard/i-believe-in-you.jpeg", "./images/hard/love-is-like-a-butterfly.jpeg", "./images/hard/love-is-like-a-butterfly.jpeg", "./images/hard/rainbow.jpeg", "./images/hard/rainbow.jpeg"]
 let cardPack = [];
 let userChoices = [];
 let matchedCards = [];
 let imgSrc = "";
-let placeholderImg = ""
+let placeholderImg = "";
+let numberOfMovesTaken = 0;
 // Functions
 const renderGame = () => {
     mainContainer.classList.remove("main");
@@ -33,6 +34,16 @@ const renderHardLevel = () => {
     hardLevel();
 }
 
+const resetForNextGame = () => {
+    userChoices = [];
+    matchedCards = [];
+    numberOfMovesTaken = 0;
+    pictureArrEasy = ["./images/easy/candy-floss.jpeg", "./images/easy/candy-floss.jpeg", "./images/easy/custard-cream.jpeg", "./images/easy/custard-cream.jpeg","./images/easy/doughnut.webp", "./images/easy/doughnut.webp", "./images/easy/jelly.jpeg", "./images/easy/jelly.jpeg", "./images/easy/macaron.jpeg", "./images/easy/macaron.jpeg", "./images/easy/pancakes.jpeg", "./images/easy/pancakes.jpeg"];
+    pictureArrMedium = ["./images/medium/balinese.jpeg", "./images/medium/balinese.jpeg", "./images/medium/ballet.jpeg", "./images/medium/ballet.jpeg", "./images/medium/emmy.jpg", "./images/medium/emmy.jpg", "./images/medium/ginger.jpeg", "./images/medium/ginger.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/hiss.jpeg", "./images/medium/hiss.jpeg","./images/medium/liesl.jpg", "./images/medium/liesl.jpg", "./images/medium/maine-coon.jpeg", "./images/medium/maine-coon.jpeg", "./images/medium/moggy.webp", "./images/medium/moggy.webp", "./images/medium/ragdoll.jpeg", "./images/medium/ragdoll.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/tortoiseshell.jpeg", "./images/medium/tortoiseshell.jpeg"]
+    pictureArrHard = ["./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/dolly.png", "./images/hard/dolly.png", "./images/hard/great-balls-of-fire.jpeg", "./images/hard/great-balls-of-fire.jpeg",
+    "./images/hard/heartbreak-express.jpeg", "./images/hard/heartbreak-express.jpeg", "./images/hard/hello-im-dolly.jpeg", "./images/hard/hello-im-dolly.jpeg", "./images/hard/here-you-come-again.jpeg", "./images/hard/here-you-come-again.jpeg", "./images/hard/honky-tonk-angels.jpeg", "./images/hard/honky-tonk-angels.jpeg", "./images/hard/hungry-again.jpeg", "./images/hard/hungry-again.jpeg", "./images/hard/i-believe-in-you.jpeg", "./images/hard/i-believe-in-you.jpeg", "./images/hard/love-is-like-a-butterfly.jpeg", "./images/hard/love-is-like-a-butterfly.jpeg", "./images/hard/rainbow.jpeg", "./images/hard/rainbow.jpeg"]
+}
+
 // Easy Level
 const easyLevel = () => {
     body.classList.add("body-game--easy");
@@ -41,6 +52,7 @@ const easyLevel = () => {
 mainContainer.innerHTML = 
 `<h1 class="game__heading">Pairs</h1>
 <p class="game__subheading game__subheading">Level One</p>
+<i class="fa-solid fa-house game__home-icon"></i>
 <section class="game__container game__container--easy">
     <div class="game__container__card game__container__card--easy"></div>
     <div class="game__container__card game__container__card--easy"></div>
@@ -55,9 +67,43 @@ mainContainer.innerHTML =
     <div class="game__container__card game__container__card--easy"></div>
     <div class="game__container__card game__container__card--easy"></div>
 </section>
-<p class="game__moves"> Moves: </p>
+<p class="game__moves"> Moves: 0</p>
+<div class="modal">
+    <div class="modal__content">
+        <span class="modal__content__close">&times;</span>
+        <h1 class="modal__content__heading">Congratulations,<br>you win!</h1>
+        <p class="modal__content__subheading">Want to play again?</p>
+        <ul class="modal__content__list">
+            Choose a level:
+            <li class="modal__content__list__item" id="easy-level-link">Easy</li>
+            <li class="modal__content__list__item" id="medium-level-link">Medium</li>
+            <li class="modal__content__list__item" id="hard-level-link">Hard</li>
+        </ul>
+    </div>
+</div>
 `
+
 let easyCardsArr = document.querySelectorAll(".game__container__card");
+let numberOfMovesDisplay = document.querySelector(".game__moves");
+const modal = document.querySelector(".modal");
+const closeModalBtn = document.querySelector(".modal__content__close")
+const easyLevelLink = document.querySelector("#easy-level-link");
+const mediumLevelLink = document.querySelector("#medium-level-link");
+const hardLevelLink = document.querySelector("#hard-level-link");
+
+easyLevelLink.addEventListener("click", renderEasyLevel);
+mediumLevelLink.addEventListener("click", renderMediumLevel);
+hardLevelLink.addEventListener("click", renderHardLevel);
+
+closeModalBtn.addEventListener("click", () => {
+    modal.style.display = "none"
+})
+
+window.addEventListener("click", () => {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+})
 
 const addUserChoice = (cardPicked, img) => {
     cardPicked.style.backgroundImage = `url(${img})`
@@ -70,6 +116,8 @@ const addUserChoice = (cardPicked, img) => {
 }
 
 const checkForMatch = (currentChoices) => {
+    numberOfMovesTaken++ ;
+    numberOfMovesDisplay.innerHTML = `Moves: ${numberOfMovesTaken}`
     // if images match
     if (currentChoices[0].cardImg === currentChoices[1].cardImg) {
         // add the matched images to the matchedCards array
@@ -97,9 +145,10 @@ const checkForMatch = (currentChoices) => {
 }
 
 const gameOver = () => {
-    // what happens when you when, goes in here
-    console.log("all cards have been matched")
+    modal.style.display = "block";
+    resetForNextGame();
 }
+
 
 easyCardsArr.forEach((card) => {
     // give each card/div a different picture from the images array
@@ -114,7 +163,7 @@ easyCardsArr.forEach((card) => {
             checkForMatch(userChoices);
             userChoices = [];
         }
-        if (matchedCards.length >= 12) {
+        if (matchedCards.length == 12) {
             gameOver();
         }
     })
@@ -156,9 +205,42 @@ mainContainer.innerHTML =
     <div class="game__container__card game__container__card--medium"></div>
     <div class="game__container__card game__container__card--medium"></div>
 </section>
-<p class="game__moves"> Moves: </p>
+<p class="game__moves"> Moves: 0</p>
+<div class="modal">
+    <div class="modal__content">
+        <span class="modal__content__close">&times;</span>
+        <h1 class="modal__content__heading">Congratulations, you win!</h1>
+        <p class="modal__content__subheading">Want to play again?</p>
+        <ul class="modal__content__list">
+            Choose a level:
+            <li class="modal__content__list__item" id="easy-level-link">Easy</li>
+            <li class="modal__content__list__item" id="medium-level-link">Medium</li>
+            <li class="modal__content__list__item" id="hard-level-link">Hard</li>
+        </ul>
+    </div>
+</div>
 `
 let mediumCardsArr = document.querySelectorAll(".game__container__card");
+const modal = document.querySelector(".modal");
+const closeModalBtn = document.querySelector(".modal__content__close")
+let numberOfMovesDisplay = document.querySelector(".game__moves");
+const easyLevelLink = document.querySelector("#easy-level-link");
+const mediumLevelLink = document.querySelector("#medium-level-link");
+const hardLevelLink = document.querySelector("#hard-level-link");
+
+easyLevelLink.addEventListener("click", renderEasyLevel);
+mediumLevelLink.addEventListener("click", renderMediumLevel);
+hardLevelLink.addEventListener("click", renderHardLevel);
+
+closeModalBtn.addEventListener("click", () => {
+    modal.style.display = "none"
+})
+
+window.addEventListener("click", () => {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+})
 
 const addUserChoice = (cardPicked, img) => {
     cardPicked.style.backgroundImage = `url(${img})`
@@ -170,6 +252,8 @@ const addUserChoice = (cardPicked, img) => {
 }
 
 const checkForMatch = (currentChoices) => {
+    numberOfMovesTaken++ ;
+    numberOfMovesDisplay.innerHTML = `Moves: ${numberOfMovesTaken}`
     if (currentChoices[0].cardImg === currentChoices[1].cardImg) {
         matchedCards.push (
             currentChoices[0].cardImg,
@@ -192,8 +276,8 @@ const checkForMatch = (currentChoices) => {
 }
 
 const gameOver = () => {
-    // what happens when you when, goes in here
-    console.log("all cards have been matched")
+    modal.style.display = "block";
+    resetForNextGame();
 }
 
 mediumCardsArr.forEach((card) => {
@@ -254,9 +338,42 @@ mainContainer.innerHTML =
     <div class="game__container__card game__container__card--hard"></div>
     <div class="game__container__card game__container__card--hard"></div>
 </section>
-<p class="game__moves">Moves: </p>
+<p class="game__moves">Moves: 0</p>
+<div class="modal">
+    <div class="modal__content">
+        <span class="modal__content__close">&times;</span>
+        <h1 class="modal__content__heading">Congratulations, you win!</h1>
+        <p class="modal__content__subheading">Want to play again?</p>
+        <ul class="modal__content__list">
+            Choose a level:
+            <li class="modal__content__list__item" id="easy-level-link">Easy</li>
+            <li class="modal__content__list__item" id="medium-level-link">Medium</li>
+            <li class="modal__content__list__item" id="hard-level-link">Hard</li>
+        </ul>
+    </div>
+</div>
 `
 let hardCardsArr = document.querySelectorAll(".game__container__card");
+const modal = document.querySelector(".modal");
+const closeModalBtn = document.querySelector(".modal__content__close")
+let numberOfMovesDisplay = document.querySelector(".game__moves");
+const easyLevelLink = document.querySelector("#easy-level-link");
+const mediumLevelLink = document.querySelector("#medium-level-link");
+const hardLevelLink = document.querySelector("#hard-level-link");
+
+easyLevelLink.addEventListener("click", renderEasyLevel);
+mediumLevelLink.addEventListener("click", renderMediumLevel);
+hardLevelLink.addEventListener("click", renderHardLevel);
+
+closeModalBtn.addEventListener("click", () => {
+    modal.style.display = "none"
+})
+
+window.addEventListener("click", () => {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+})
 
 const addUserChoice = (cardPicked, img) => {
     cardPicked.style.backgroundImage = `url(${img})`
@@ -268,6 +385,10 @@ const addUserChoice = (cardPicked, img) => {
 }
 
 const checkForMatch = (currentChoices) => {
+    numberOfMovesTaken++ ;
+    numberOfMovesDisplay.innerHTML = `Moves: ${numberOfMovesTaken}`
+
+    console.log(numberOfMovesTaken)
     if (currentChoices[0].cardImg === currentChoices[1].cardImg) {
         matchedCards.push (
             currentChoices[0].cardImg,
@@ -290,8 +411,8 @@ const checkForMatch = (currentChoices) => {
 }
 
 const gameOver = () => {
-    // what happens when you when, goes in here
-    console.log("all cards have been matched")
+    modal.style.display = "block";
+    resetForNextGame();
 }
 
 hardCardsArr.forEach((card) => {
