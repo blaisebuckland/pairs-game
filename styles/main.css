@@ -107,9 +107,8 @@ body {
 }
 
 .game {
-  height: 100%;
+  height: 80%;
   margin: 10% auto 10% auto;
-  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -121,12 +120,6 @@ body {
 .game__subheading {
   margin-bottom: 5%;
 }
-.game__home-icon {
-  position: relative;
-  display: inline;
-  top: 0;
-  left: 0;
-}
 .game__container {
   display: grid;
   width: 80%;
@@ -137,75 +130,75 @@ body {
 .game__moves {
   margin: 5% 0 5% 0;
 }
-.game__container--easy {
+.game__container--level-one {
   grid-gap: 18px;
   grid-template-columns: repeat(3, 60px);
   grid-template-rows: repeat(4, 60px);
 }
 @media screen and (min-width: 480px) {
-  .game__container--easy {
+  .game__container--level-one {
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(4, 100px);
   }
 }
 @media screen and (min-width: 768px) {
-  .game__container--easy {
+  .game__container--level-one {
     grid-template-columns: repeat(3, 120px);
     grid-template-rows: repeat(4, 120px);
     grid-gap: 20px;
   }
 }
 @media screen and (min-width: 991px) {
-  .game__container--easy {
+  .game__container--level-one {
     grid-template-columns: repeat(4, 150px);
     grid-template-rows: repeat(3, 150px);
     grid-gap: 25px;
   }
 }
-.game__container--medium {
+.game__container--level-two {
   grid-gap: 10px;
   grid-template-columns: repeat(4, 60px);
   grid-template-rows: repeat(6, 60px);
 }
 @media screen and (min-width: 480px) {
-  .game__container--medium {
+  .game__container--level-two {
     grid-template-columns: repeat(4, 70px);
     grid-template-rows: repeat(6, 70px);
   }
 }
 @media screen and (min-width: 768px) {
-  .game__container--medium {
+  .game__container--level-two {
     grid-template-columns: repeat(4, 90px);
     grid-template-rows: repeat(6, 90px);
     grid-gap: 20px;
   }
 }
 @media screen and (min-width: 768px) {
-  .game__container--medium {
+  .game__container--level-two {
     grid-template-columns: repeat(6, 100px);
     grid-template-rows: repeat(4, 100px);
   }
 }
-.game__container--hard {
+.game__container--level-three {
   grid-gap: 5px;
   grid-template-columns: repeat(4, 40px);
   grid-template-rows: repeat(7, 40px);
 }
 @media screen and (min-width: 480px) {
-  .game__container--hard {
+  .game__container--level-three {
     grid-template-columns: repeat(4, 45px);
     grid-template-rows: repeat(7, 45px);
   }
 }
 @media screen and (min-width: 768px) {
-  .game__container--hard {
+  .game__container--level-three {
     grid-template-columns: repeat(4, 70px);
     grid-template-rows: repeat(7, 70px);
     grid-gap: 10px;
   }
 }
 @media screen and (min-width: 991px) {
-  .game__container--hard {
+  .game__container--level-three {
     grid-template-columns: repeat(7, 100px);
     grid-template-rows: repeat(4, 100px);
     grid-gap: 15px;
@@ -245,15 +238,15 @@ body {
   }
 }
 
-.body-game--easy {
+.body-game--level-one {
   background-color: #F5E0E5;
 }
 
-.body-game--medium {
+.body-game--level-two {
   background-color: #46B5BC;
 }
 
-.body-game--hard {
+.body-game--level-three {
   background-color: #FD56A6;
 }
 
@@ -262,15 +255,15 @@ body {
   background-size: cover;
 }
 
-.game__container__card--easy {
+.game__container__card--level-one {
   background-image: url(../images/card-backgrounds/sweets.jpg);
 }
 
-.game__container__card--medium {
+.game__container__card--level-two {
   background-image: url(../images/card-backgrounds/cat.jpeg);
 }
 
-.game__container__card--hard {
+.game__container__card--level-three {
   border: 2px solid #46B5BC;
   background-image: url(../images/card-backgrounds/dolly.jpeg);
 }
@@ -312,6 +305,7 @@ body {
   margin-left: auto;
   font-size: 28px;
   font-weight: bold;
+  height: 16px;
 }
 .modal__content__close:hover, .modal__content__close:focus {
   color: black;
@@ -356,7 +350,7 @@ body {
   .modal__content__heading {
     font-size: 37px;
   }
-  .modal__content__subheading {
+  .modal__content__subheading, .modal__content__close {
     font-size: 25px;
   }
   .modal__content__list {
@@ -376,7 +370,7 @@ body {
   .modal__content__heading {
     font-size: 56px;
   }
-  .modal__content__subheading {
+  .modal__content__subheading, .modal__content__close {
     font-size: 30px;
   }
   .modal__content__list {

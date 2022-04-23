@@ -3,15 +3,15 @@
     background-size: cover;
 }
 
-.game__container__card--easy {
+.game__container__card--level-one {
     background-image: url(../images/card-backgrounds/sweets.jpg);
 }
 
-.game__container__card--medium {
+.game__container__card--level-two {
     background-image: url(../images/card-backgrounds/cat.jpeg);
 }
 
-.game__container__card--hard {
+.game__container__card--level-three {
     border: 2px solid $colour-bright-blue;   
     background-image: url(../images/card-backgrounds/dolly.jpeg);
 }
@@ -52,6 +52,7 @@
             margin-left: auto;
             font-size: 28px;
             font-weight: bold;
+            height: 16px;
         }
         &__close:hover,
         &__close:focus {
@@ -97,7 +98,7 @@
             &__heading {
                 font-size: 37px;
             }
-            &__subheading {
+            &__subheading, &__close {
                 font-size: 25px;
             }
             &__list {
@@ -117,7 +118,7 @@
             &__heading {
                 font-size: 56px;
             }
-            &__subheading {
+            &__subheading, &__close {
                 font-size: 30px;
             }
             &__list {
