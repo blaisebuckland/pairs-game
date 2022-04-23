@@ -1,5 +1,5 @@
 # pairs-game
-This is a [memory game](ADD LINK to GAME...blaisebuckland.github.io/calculator/), you have to find all the matching pairs to win. There are three difficulty levels, each with its own theme (sweets, cats and Dolly Parton). In the higher levels there are more cards to match and the images on the cards become more difficult to differentiate between.
+This is a [memory game](blaisebuckland.github.io/pairs-game/) in which the player must find all the matching pairs to win. There are three difficulty levels, each with its own theme (sweets, cats and Dolly Parton). In the higher levels there are more cards to match and the images on the cards become more difficult to differentiate between.
 
 ## Technologies
 * JavaScript
@@ -20,8 +20,11 @@ This is a [memory game](ADD LINK to GAME...blaisebuckland.github.io/calculator/)
 * Complementary colour schemes across levels
 
 ## Images
-ADD image of game homepage and each level
-<img src="https://github.com/blaisebuckland/calculator/blob/main/Calculator-image.jpg" alt="calculator-image" width=300>
+<img src="https://github.com/blaisebuckland/pairs-game/blob/main/images/game-demo/homepage.png" alt="homepage-image" width=300>
+<img src="https://github.com/blaisebuckland/pairs-game/blob/main/images/game-demo/level-one.png" alt="homepage-image" width=300>
+<img src="https://github.com/blaisebuckland/pairs-game/blob/main/images/game-demo/level-two.png" alt="homepage-image" width=300>
+<img src="https://github.com/blaisebuckland/pairs-game/blob/main/images/game-demo/level-three.png" alt="homepage-image" width=300>
+<img src="https://github.com/blaisebuckland/pairs-game/blob/main/images/game-demo/winning-message.png" alt="homepage-image" width=300>
 
 ## Functionality
 * After level selection, each card is randomly given an image
@@ -34,5 +37,5 @@ ADD image of game homepage and each level
 
 ## Links
 * [GitHub repository](https://github.com/blaisebuckland/pairs-game)
-* [The calculator](blaisebuckland.github.io/pairs-game/)
+* [The game](blaisebuckland.github.io/pairs-game/)
 
