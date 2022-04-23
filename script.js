@@ -1,12 +1,12 @@
 // Variables
-const easyLevelLink = document.querySelector("#easy-level-link");
-const mediumLevelLink = document.querySelector("#medium-level-link");
-const hardLevelLink = document.querySelector("#hard-level-link");
+const levelOneLink = document.querySelector("#level-one-link");
+const levelTwoLink = document.querySelector("#level-two-link");
+const levelThreeLink = document.querySelector("#level-three-link");
 const mainContainer = document.querySelector(".main");
 const body = document.querySelector(".body");
-let pictureArrEasy = ["./images/easy/candy-floss.jpeg", "./images/easy/candy-floss.jpeg", "./images/easy/custard-cream.jpeg", "./images/easy/custard-cream.jpeg","./images/easy/doughnut.webp", "./images/easy/doughnut.webp", "./images/easy/jelly.jpeg", "./images/easy/jelly.jpeg", "./images/easy/macaron.jpeg", "./images/easy/macaron.jpeg", "./images/easy/pancakes.jpeg", "./images/easy/pancakes.jpeg"];
-let pictureArrMedium = ["./images/medium/balinese.jpeg", "./images/medium/balinese.jpeg", "./images/medium/ballet.jpeg", "./images/medium/ballet.jpeg", "./images/medium/emmy.jpg", "./images/medium/emmy.jpg", "./images/medium/ginger.jpeg", "./images/medium/ginger.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/hiss.jpeg", "./images/medium/hiss.jpeg","./images/medium/liesl.jpg", "./images/medium/liesl.jpg", "./images/medium/maine-coon.jpeg", "./images/medium/maine-coon.jpeg", "./images/medium/moggy.webp", "./images/medium/moggy.webp", "./images/medium/ragdoll.jpeg", "./images/medium/ragdoll.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/tortoiseshell.jpeg", "./images/medium/tortoiseshell.jpeg"]
-let pictureArrHard = ["./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/dolly.png", "./images/hard/dolly.png", "./images/hard/great-balls-of-fire.jpeg", "./images/hard/great-balls-of-fire.jpeg",
+let pictureArrLevelOne = ["./images/easy/candy-floss.jpeg", "./images/easy/candy-floss.jpeg", "./images/easy/custard-cream.jpeg", "./images/easy/custard-cream.jpeg","./images/easy/doughnut.webp", "./images/easy/doughnut.webp", "./images/easy/jelly.jpeg", "./images/easy/jelly.jpeg", "./images/easy/macaron.jpeg", "./images/easy/macaron.jpeg", "./images/easy/pancakes.jpeg", "./images/easy/pancakes.jpeg"];
+let pictureArrLevelTwo = ["./images/medium/balinese.jpeg", "./images/medium/balinese.jpeg", "./images/medium/ballet.jpeg", "./images/medium/ballet.jpeg", "./images/medium/emmy.jpg", "./images/medium/emmy.jpg", "./images/medium/ginger.jpeg", "./images/medium/ginger.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/hiss.jpeg", "./images/medium/hiss.jpeg","./images/medium/liesl.jpg", "./images/medium/liesl.jpg", "./images/medium/maine-coon.jpeg", "./images/medium/maine-coon.jpeg", "./images/medium/moggy.webp", "./images/medium/moggy.webp", "./images/medium/ragdoll.jpeg", "./images/medium/ragdoll.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/tortoiseshell.jpeg", "./images/medium/tortoiseshell.jpeg"]
+let pictureArrLevelThree = ["./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/dolly.png", "./images/hard/dolly.png", "./images/hard/great-balls-of-fire.jpeg", "./images/hard/great-balls-of-fire.jpeg",
 "./images/hard/heartbreak-express.jpeg", "./images/hard/heartbreak-express.jpeg", "./images/hard/hello-im-dolly.jpeg", "./images/hard/hello-im-dolly.jpeg", "./images/hard/here-you-come-again.jpeg", "./images/hard/here-you-come-again.jpeg", "./images/hard/honky-tonk-angels.jpeg", "./images/hard/honky-tonk-angels.jpeg", "./images/hard/hungry-again.jpeg", "./images/hard/hungry-again.jpeg", "./images/hard/i-believe-in-you.jpeg", "./images/hard/i-believe-in-you.jpeg", "./images/hard/love-is-like-a-butterfly.jpeg", "./images/hard/love-is-like-a-butterfly.jpeg", "./images/hard/rainbow.jpeg", "./images/hard/rainbow.jpeg"]
 let cardPack = [];
 let userChoices = [];
@@ -14,58 +14,62 @@ let matchedCards = [];
 let imgSrc = "";
 let placeholderImg = "";
 let numberOfMovesTaken = 0;
+
 // Functions
 const renderGame = () => {
     mainContainer.classList.remove("main");
     mainContainer.classList.add("game");
 }
-const renderEasyLevel = () => {
+const renderLevelOne = () => {
     renderGame();
-    easyLevel();
+    levelOne();
 }
-
-const renderMediumLevel = () => {
+const renderLevelTwo = () => {
     renderGame();
-    mediumLevel();
+    levelTwo();
 }
-
-const renderHardLevel = () => {
+const renderLevelThree = () => {
     renderGame();
-    hardLevel();
+    levelThree();
 }
-
 const resetForNextGame = () => {
     userChoices = [];
     matchedCards = [];
     numberOfMovesTaken = 0;
-    pictureArrEasy = ["./images/easy/candy-floss.jpeg", "./images/easy/candy-floss.jpeg", "./images/easy/custard-cream.jpeg", "./images/easy/custard-cream.jpeg","./images/easy/doughnut.webp", "./images/easy/doughnut.webp", "./images/easy/jelly.jpeg", "./images/easy/jelly.jpeg", "./images/easy/macaron.jpeg", "./images/easy/macaron.jpeg", "./images/easy/pancakes.jpeg", "./images/easy/pancakes.jpeg"];
-    pictureArrMedium = ["./images/medium/balinese.jpeg", "./images/medium/balinese.jpeg", "./images/medium/ballet.jpeg", "./images/medium/ballet.jpeg", "./images/medium/emmy.jpg", "./images/medium/emmy.jpg", "./images/medium/ginger.jpeg", "./images/medium/ginger.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/hiss.jpeg", "./images/medium/hiss.jpeg","./images/medium/liesl.jpg", "./images/medium/liesl.jpg", "./images/medium/maine-coon.jpeg", "./images/medium/maine-coon.jpeg", "./images/medium/moggy.webp", "./images/medium/moggy.webp", "./images/medium/ragdoll.jpeg", "./images/medium/ragdoll.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/tortoiseshell.jpeg", "./images/medium/tortoiseshell.jpeg"]
-    pictureArrHard = ["./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/dolly.png", "./images/hard/dolly.png", "./images/hard/great-balls-of-fire.jpeg", "./images/hard/great-balls-of-fire.jpeg",
+    pictureArrLevelOne = ["./images/easy/candy-floss.jpeg", "./images/easy/candy-floss.jpeg", "./images/easy/custard-cream.jpeg", "./images/easy/custard-cream.jpeg","./images/easy/doughnut.webp", "./images/easy/doughnut.webp", "./images/easy/jelly.jpeg", "./images/easy/jelly.jpeg", "./images/easy/macaron.jpeg", "./images/easy/macaron.jpeg", "./images/easy/pancakes.jpeg", "./images/easy/pancakes.jpeg"];
+    pictureArrLevelTwo = ["./images/medium/balinese.jpeg", "./images/medium/balinese.jpeg", "./images/medium/ballet.jpeg", "./images/medium/ballet.jpeg", "./images/medium/emmy.jpg", "./images/medium/emmy.jpg", "./images/medium/ginger.jpeg", "./images/medium/ginger.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/hiss.jpeg", "./images/medium/hiss.jpeg","./images/medium/liesl.jpg", "./images/medium/liesl.jpg", "./images/medium/maine-coon.jpeg", "./images/medium/maine-coon.jpeg", "./images/medium/moggy.webp", "./images/medium/moggy.webp", "./images/medium/ragdoll.jpeg", "./images/medium/ragdoll.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/tortoiseshell.jpeg", "./images/medium/tortoiseshell.jpeg"]
+    pictureArrLevelThree = ["./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/dolly.png", "./images/hard/dolly.png", "./images/hard/great-balls-of-fire.jpeg", "./images/hard/great-balls-of-fire.jpeg",
     "./images/hard/heartbreak-express.jpeg", "./images/hard/heartbreak-express.jpeg", "./images/hard/hello-im-dolly.jpeg", "./images/hard/hello-im-dolly.jpeg", "./images/hard/here-you-come-again.jpeg", "./images/hard/here-you-come-again.jpeg", "./images/hard/honky-tonk-angels.jpeg", "./images/hard/honky-tonk-angels.jpeg", "./images/hard/hungry-again.jpeg", "./images/hard/hungry-again.jpeg", "./images/hard/i-believe-in-you.jpeg", "./images/hard/i-believe-in-you.jpeg", "./images/hard/love-is-like-a-butterfly.jpeg", "./images/hard/love-is-like-a-butterfly.jpeg", "./images/hard/rainbow.jpeg", "./images/hard/rainbow.jpeg"]
 }
 
-// Easy Level
-const easyLevel = () => {
-    body.classList.add("body-game--easy");
+// Event listeners
+levelOneLink.addEventListener("click", renderLevelOne);
+levelTwoLink.addEventListener("click", renderLevelTwo);
+levelThreeLink.addEventListener("click", renderLevelThree);
+
+// Level One
+const levelOne = () => {
+    body.classList.add("body-game--level-one");
     body.classList.remove("body");
+    body.classList.remove("body-game--level-two");
+    body.classList.remove("body-game--level-three");
     placeholderImg = "./images/card-backgrounds/sweets.jpg"
 mainContainer.innerHTML = 
 `<h1 class="game__heading">Pairs</h1>
 <p class="game__subheading game__subheading">Level One</p>
-<i class="fa-solid fa-house game__home-icon"></i>
-<section class="game__container game__container--easy">
-    <div class="game__container__card game__container__card--easy"></div>
-    <div class="game__container__card game__container__card--easy"></div>
-    <div class="game__container__card game__container__card--easy"></div>
-    <div class="game__container__card game__container__card--easy"></div>
-    <div class="game__container__card game__container__card--easy"></div>
-    <div class="game__container__card game__container__card--easy"></div>
-    <div class="game__container__card game__container__card--easy"></div>
-    <div class="game__container__card game__container__card--easy"></div>
-    <div class="game__container__card game__container__card--easy"></div>
-    <div class="game__container__card game__container__card--easy"></div>
-    <div class="game__container__card game__container__card--easy"></div>
-    <div class="game__container__card game__container__card--easy"></div>
+<section class="game__container game__container--level-one">
+    <div class="game__container__card game__container__card--level-one"></div>
+    <div class="game__container__card game__container__card--level-one"></div>
+    <div class="game__container__card game__container__card--level-one"></div>
+    <div class="game__container__card game__container__card--level-one"></div>
+    <div class="game__container__card game__container__card--level-one"></div>
+    <div class="game__container__card game__container__card--level-one"></div>
+    <div class="game__container__card game__container__card--level-one"></div>
+    <div class="game__container__card game__container__card--level-one"></div>
+    <div class="game__container__card game__container__card--level-one"></div>
+    <div class="game__container__card game__container__card--level-one"></div>
+    <div class="game__container__card game__container__card--level-one"></div>
+    <div class="game__container__card game__container__card--level-one"></div>
 </section>
 <p class="game__moves"> Moves: 0</p>
 <div class="modal">
@@ -75,26 +79,24 @@ mainContainer.innerHTML =
         <p class="modal__content__subheading">Want to play again?</p>
         <ul class="modal__content__list">
             Choose a level:
-            <li class="modal__content__list__item" id="easy-level-link">Easy</li>
-            <li class="modal__content__list__item" id="medium-level-link">Medium</li>
-            <li class="modal__content__list__item" id="hard-level-link">Hard</li>
+            <li class="modal__content__list__item" id="level-one-link">One</li>
+            <li class="modal__content__list__item" id="level-two-link">Two</li>
+            <li class="modal__content__list__item" id="level-three-link">Three</li>
         </ul>
     </div>
 </div>
 `
-
-let easyCardsArr = document.querySelectorAll(".game__container__card");
+let levelOneCardsArr = document.querySelectorAll(".game__container__card");
 let numberOfMovesDisplay = document.querySelector(".game__moves");
 const modal = document.querySelector(".modal");
 const closeModalBtn = document.querySelector(".modal__content__close")
-const easyLevelLink = document.querySelector("#easy-level-link");
-const mediumLevelLink = document.querySelector("#medium-level-link");
-const hardLevelLink = document.querySelector("#hard-level-link");
+const levelOneLink = document.querySelector("#level-one-link");
+const levelTwoLink = document.querySelector("#level-two-link");
+const levelThreeLink = document.querySelector("#level-three-link");
 
-easyLevelLink.addEventListener("click", renderEasyLevel);
-mediumLevelLink.addEventListener("click", renderMediumLevel);
-hardLevelLink.addEventListener("click", renderHardLevel);
-
+levelOneLink.addEventListener("click", renderLevelOne);
+levelTwoLink.addEventListener("click", renderLevelTwo);
+levelThreeLink.addEventListener("click", renderLevelThree);
 closeModalBtn.addEventListener("click", () => {
     modal.style.display = "none"
 })
@@ -107,38 +109,38 @@ window.addEventListener("click", () => {
 
 const addUserChoice = (cardPicked, img) => {
     cardPicked.style.backgroundImage = `url(${img})`
-    // NEW ***** user choices is now an array of objects, so we can store both the div/card the user clicked and the img in that div - makes it easier to modify the background image later
+    // userChoices is an array of objects, to store both the div/card the user clicked and the img in that div - makes it easier to modify the background image later
     userChoices.push ({
         cardNode: cardPicked,
         cardImg: img,
     });
-    console.log(userChoices)
 }
 
 const checkForMatch = (currentChoices) => {
+    const resetFirstChoice = () => {
+        currentChoices[0].cardNode.style.backgroundImage = `url(${placeholderImg})`;
+    }
+    const resetSecondChoice = () => {
+        currentChoices[1].cardNode.style.backgroundImage = `url(${placeholderImg})`;
+    }
+    // update number of moves taken
     numberOfMovesTaken++ ;
     numberOfMovesDisplay.innerHTML = `Moves: ${numberOfMovesTaken}`
     // if images match
     if (currentChoices[0].cardImg === currentChoices[1].cardImg) {
-        // add the matched images to the matchedCards array
+    // add the matched images to the matchedCards array
         matchedCards.push (
             currentChoices[0].cardImg,
             currentChoices[1].cardImg
         );
-        // and make it so these cards/divs can be selected again ***** NEED TO MAKE THIS CLASS
+    // and make it so these cards/divs can be selected again
         currentChoices[0].cardNode.classList.add("disabled");
         currentChoices[1].cardNode.classList.add("disabled");
-        // reset user choices array
+    // reset user choices array
         currentChoices.length = 0;
         userChoices.length = 0;
     } else {
-        // if the images don't match, flip them back over
-        const resetFirstChoice = () => {
-            currentChoices[0].cardNode.style.backgroundImage = `url(${placeholderImg})`;
-        }
-        const resetSecondChoice = () => {
-            currentChoices[1].cardNode.style.backgroundImage = `url(${placeholderImg})`;
-        }
+    // if the images don't match, flip them back over
         setTimeout(resetFirstChoice, 1000)
         setTimeout(resetSecondChoice, 1000)
     }
@@ -149,13 +151,12 @@ const gameOver = () => {
     resetForNextGame();
 }
 
-
-easyCardsArr.forEach((card) => {
+levelOneCardsArr.forEach((card) => {
     // give each card/div a different picture from the images array
-    let randomNumber = Math.floor(Math.random()*(pictureArrEasy.length));
-    let imgSrc = pictureArrEasy[randomNumber];
+    let randomNumber = Math.floor(Math.random()*(pictureArrLevelOne.length));
+    let imgSrc = pictureArrLevelOne[randomNumber];
     // then remove that image from the array so it can't be picked again
-    pictureArrEasy.splice(randomNumber,1);
+    pictureArrLevelOne.splice(randomNumber,1);
 
     card.addEventListener("click", () => {
         addUserChoice(card, imgSrc);
@@ -164,46 +165,47 @@ easyCardsArr.forEach((card) => {
             userChoices = [];
         }
         if (matchedCards.length == 12) {
-            gameOver();
+            setTimeout(gameOver, 1000);
         }
     })
 })
 }
 
-
-// Medium Level
-const mediumLevel = () => {
-    body.classList.add("body-game--medium");
+// Level Two
+const levelTwo = () => {
+    body.classList.add("body-game--level-two");
     body.classList.remove("body");
+    body.classList.remove("body-game--level-one");
+    body.classList.remove("body-game--level-three");
     placeholderImg = "./images/card-backgrounds/cat.jpeg"
 mainContainer.innerHTML = 
 `<h1 class="game__heading">Pairs</h1>
 <p class="game__subheading game__subheading">Level Two</p>
-<section class="game__container game__container--medium">
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
-    <div class="game__container__card game__container__card--medium"></div>
+<section class="game__container game__container--level-two">
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
+    <div class="game__container__card game__container__card--level-two"></div>
 </section>
 <p class="game__moves"> Moves: 0</p>
 <div class="modal">
@@ -213,25 +215,24 @@ mainContainer.innerHTML =
         <p class="modal__content__subheading">Want to play again?</p>
         <ul class="modal__content__list">
             Choose a level:
-            <li class="modal__content__list__item" id="easy-level-link">Easy</li>
-            <li class="modal__content__list__item" id="medium-level-link">Medium</li>
-            <li class="modal__content__list__item" id="hard-level-link">Hard</li>
+            <li class="modal__content__list__item" id="level-one-link">One</li>
+            <li class="modal__content__list__item" id="level-two-link">Two</li>
+            <li class="modal__content__list__item" id="level-three-link">Three</li>
         </ul>
     </div>
 </div>
 `
-let mediumCardsArr = document.querySelectorAll(".game__container__card");
+let levelTwoCardsArr = document.querySelectorAll(".game__container__card");
 const modal = document.querySelector(".modal");
 const closeModalBtn = document.querySelector(".modal__content__close")
 let numberOfMovesDisplay = document.querySelector(".game__moves");
-const easyLevelLink = document.querySelector("#easy-level-link");
-const mediumLevelLink = document.querySelector("#medium-level-link");
-const hardLevelLink = document.querySelector("#hard-level-link");
+const levelOneLink = document.querySelector("#level-one-link");
+const levelTwoLink = document.querySelector("#level-two-link");
+const levelThreeLink = document.querySelector("#level-three-link");
 
-easyLevelLink.addEventListener("click", renderEasyLevel);
-mediumLevelLink.addEventListener("click", renderMediumLevel);
-hardLevelLink.addEventListener("click", renderHardLevel);
-
+levelOneLink.addEventListener("click", renderLevelOne);
+levelTwoLink.addEventListener("click", renderLevelTwo);
+levelThreeLink.addEventListener("click", renderLevelThree);
 closeModalBtn.addEventListener("click", () => {
     modal.style.display = "none"
 })
@@ -280,12 +281,10 @@ const gameOver = () => {
     resetForNextGame();
 }
 
-mediumCardsArr.forEach((card) => {
-    // give each card/div a different picture from the images array
-    let randomNumber = Math.floor(Math.random()*(pictureArrMedium.length));
-    let imgSrc = pictureArrMedium[randomNumber];
-    // then remove that image from the array so it can't be picked again
-    pictureArrMedium.splice(randomNumber,1);
+levelTwoCardsArr.forEach((card) => {
+    let randomNumber = Math.floor(Math.random()*(pictureArrLevelTwo.length));
+    let imgSrc = pictureArrLevelTwo[randomNumber];
+    pictureArrLevelTwo.splice(randomNumber,1);
 
     card.addEventListener("click", () => {
         addUserChoice(card, imgSrc);
@@ -294,49 +293,51 @@ mediumCardsArr.forEach((card) => {
             userChoices = [];
         }
         if (matchedCards.length >= 24) {
-            gameOver();
+            setTimeout(gameOver, 1000);
         }
     })
 })
 }
 
-// Hard Level
-const hardLevel = () => {
-    body.classList.add("body-game--hard");
+// Level Three
+const levelThree = () => {
+    body.classList.add("body-game--level-three");
     body.classList.remove("body");
+    body.classList.remove("body-game--level-one");
+    body.classList.remove("body-game--level-two");
     placeholderImg = "./images/card-backgrounds/dolly.jpeg";
 mainContainer.innerHTML = 
 `<h1 class="game__heading">Pairs</h1>
 <p class="game__subheading game__subheading">Level Three</p>
-<section class="game__container game__container--hard">
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
-    <div class="game__container__card game__container__card--hard"></div>
+<section class="game__container game__container--level-three">
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
+    <div class="game__container__card game__container__card--level-three"></div>
 </section>
 <p class="game__moves">Moves: 0</p>
 <div class="modal">
@@ -346,25 +347,24 @@ mainContainer.innerHTML =
         <p class="modal__content__subheading">Want to play again?</p>
         <ul class="modal__content__list">
             Choose a level:
-            <li class="modal__content__list__item" id="easy-level-link">Easy</li>
-            <li class="modal__content__list__item" id="medium-level-link">Medium</li>
-            <li class="modal__content__list__item" id="hard-level-link">Hard</li>
+            <li class="modal__content__list__item" id="level-one-link">One</li>
+            <li class="modal__content__list__item" id="level-two-link">Two</li>
+            <li class="modal__content__list__item" id="level-three-link">Three</li>
         </ul>
     </div>
 </div>
 `
-let hardCardsArr = document.querySelectorAll(".game__container__card");
+let levelThreeCardsArr = document.querySelectorAll(".game__container__card");
 const modal = document.querySelector(".modal");
 const closeModalBtn = document.querySelector(".modal__content__close")
 let numberOfMovesDisplay = document.querySelector(".game__moves");
-const easyLevelLink = document.querySelector("#easy-level-link");
-const mediumLevelLink = document.querySelector("#medium-level-link");
-const hardLevelLink = document.querySelector("#hard-level-link");
+const levelOneLink = document.querySelector("#level-one-link");
+const levelTwoLink = document.querySelector("#level-two-link");
+const levelThreeLink = document.querySelector("#level-three-link");
 
-easyLevelLink.addEventListener("click", renderEasyLevel);
-mediumLevelLink.addEventListener("click", renderMediumLevel);
-hardLevelLink.addEventListener("click", renderHardLevel);
-
+levelOneLink.addEventListener("click", renderLevelOne);
+levelTwoLink.addEventListener("click", renderLevelTwo);
+levelThreeLink.addEventListener("click", renderLevelThree);
 closeModalBtn.addEventListener("click", () => {
     modal.style.display = "none"
 })
@@ -415,12 +415,10 @@ const gameOver = () => {
     resetForNextGame();
 }
 
-hardCardsArr.forEach((card) => {
-    // give each card/div a different picture from the images array
-    let randomNumber = Math.floor(Math.random()*(pictureArrHard.length));
-    let imgSrc = pictureArrHard[randomNumber];
-    // then remove that image from the array so it can't be picked again
-    pictureArrHard.splice(randomNumber,1);
+levelThreeCardsArr.forEach((card) => {
+    let randomNumber = Math.floor(Math.random()*(pictureArrLevelThree.length));
+    let imgSrc = pictureArrLevelThree[randomNumber];
+    pictureArrLevelThree.splice(randomNumber,1);
 
     card.addEventListener("click", () => {
         addUserChoice(card, imgSrc);
@@ -428,15 +426,9 @@ hardCardsArr.forEach((card) => {
             checkForMatch(userChoices);
             userChoices = [];
         }
-        if (matchedCards.length >= 24) {
-            gameOver();
+        if (matchedCards.length >= 28) {
+            setTimeout(gameOver, 1000);
         }
     })
 })
 }
-// Event listeners - select level
-easyLevelLink.addEventListener("click", renderEasyLevel);
-
-mediumLevelLink.addEventListener("click", renderMediumLevel);
-
-hardLevelLink.addEventListener("click", renderHardLevel);
