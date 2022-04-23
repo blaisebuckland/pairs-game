@@ -16,6 +16,31 @@ let placeholderImg = "";
 let numberOfMovesTaken = 0;
 
 // Functions
+const renderHomepage = () => {
+    body.classList.add("body");
+    body.classList.remove("body-game--level-one");
+    body.classList.remove("body-game--level-two");
+    body.classList.remove("body-game--level-three");
+    mainContainer.classList.remove("game");
+    mainContainer.classList.add("main")
+    resetForNextGame();
+
+    mainContainer.innerHTML =  
+    `<h1 class="main__heading">Pairs</h1>
+    <p class="main__subheading">Flip the cards to find all the matching pairs!</p>
+    <ul class="main__list">
+        Choose a level:
+        <li class="main__list__item" id="level-one-link">One</li>
+        <li class="main__list__item" id="level-two-link">Two</li>
+        <li class="main__list__item" id="level-three-link">Three</li>
+    </ul>`
+    const levelOneLink = document.querySelector("#level-one-link");
+    const levelTwoLink = document.querySelector("#level-two-link");
+    const levelThreeLink = document.querySelector("#level-three-link");    
+    levelOneLink.addEventListener("click", renderLevelOne);
+    levelTwoLink.addEventListener("click", renderLevelTwo);
+    levelThreeLink.addEventListener("click", renderLevelThree);
+}
 const renderGame = () => {
     mainContainer.classList.remove("main");
     mainContainer.classList.add("game");
@@ -55,7 +80,8 @@ const levelOne = () => {
     body.classList.remove("body-game--level-three");
     placeholderImg = "./images/card-backgrounds/sweets.jpg"
 mainContainer.innerHTML = 
-`<h1 class="game__heading">Pairs</h1>
+`<i class="fa-solid fa-house game__home-btn"></i>
+<h1 class="game__heading">Pairs</h1>
 <p class="game__subheading game__subheading">Level One</p>
 <section class="game__container game__container--level-one">
     <div class="game__container__card game__container__card--level-one"></div>
@@ -88,12 +114,14 @@ mainContainer.innerHTML =
 `
 let levelOneCardsArr = document.querySelectorAll(".game__container__card");
 let numberOfMovesDisplay = document.querySelector(".game__moves");
+const homeBtn = document.querySelector(".game__home-btn")
 const modal = document.querySelector(".modal");
 const closeModalBtn = document.querySelector(".modal__content__close")
 const levelOneLink = document.querySelector("#level-one-link");
 const levelTwoLink = document.querySelector("#level-two-link");
 const levelThreeLink = document.querySelector("#level-three-link");
 
+homeBtn.addEventListener("click", renderHomepage);
 levelOneLink.addEventListener("click", renderLevelOne);
 levelTwoLink.addEventListener("click", renderLevelTwo);
 levelThreeLink.addEventListener("click", renderLevelThree);
@@ -179,7 +207,8 @@ const levelTwo = () => {
     body.classList.remove("body-game--level-three");
     placeholderImg = "./images/card-backgrounds/cat.jpeg"
 mainContainer.innerHTML = 
-`<h1 class="game__heading">Pairs</h1>
+`<i class="fa-solid fa-house game__home-btn"></i>
+<h1 class="game__heading">Pairs</h1>
 <p class="game__subheading game__subheading">Level Two</p>
 <section class="game__container game__container--level-two">
     <div class="game__container__card game__container__card--level-two"></div>
@@ -223,6 +252,7 @@ mainContainer.innerHTML =
 </div>
 `
 let levelTwoCardsArr = document.querySelectorAll(".game__container__card");
+const homeBtn = document.querySelector(".game__home-btn")
 const modal = document.querySelector(".modal");
 const closeModalBtn = document.querySelector(".modal__content__close")
 let numberOfMovesDisplay = document.querySelector(".game__moves");
@@ -230,6 +260,7 @@ const levelOneLink = document.querySelector("#level-one-link");
 const levelTwoLink = document.querySelector("#level-two-link");
 const levelThreeLink = document.querySelector("#level-three-link");
 
+homeBtn.addEventListener("click", renderHomepage);
 levelOneLink.addEventListener("click", renderLevelOne);
 levelTwoLink.addEventListener("click", renderLevelTwo);
 levelThreeLink.addEventListener("click", renderLevelThree);
@@ -307,7 +338,8 @@ const levelThree = () => {
     body.classList.remove("body-game--level-two");
     placeholderImg = "./images/card-backgrounds/dolly.jpeg";
 mainContainer.innerHTML = 
-`<h1 class="game__heading">Pairs</h1>
+`<i class="fa-solid fa-house game__home-btn"></i>
+<h1 class="game__heading">Pairs</h1>
 <p class="game__subheading game__subheading">Level Three</p>
 <section class="game__container game__container--level-three">
     <div class="game__container__card game__container__card--level-three"></div>
@@ -355,6 +387,7 @@ mainContainer.innerHTML =
 </div>
 `
 let levelThreeCardsArr = document.querySelectorAll(".game__container__card");
+const homeBtn = document.querySelector(".game__home-btn")
 const modal = document.querySelector(".modal");
 const closeModalBtn = document.querySelector(".modal__content__close")
 let numberOfMovesDisplay = document.querySelector(".game__moves");
@@ -362,6 +395,7 @@ const levelOneLink = document.querySelector("#level-one-link");
 const levelTwoLink = document.querySelector("#level-two-link");
 const levelThreeLink = document.querySelector("#level-three-link");
 
+homeBtn.addEventListener("click", renderHomepage);
 levelOneLink.addEventListener("click", renderLevelOne);
 levelTwoLink.addEventListener("click", renderLevelTwo);
 levelThreeLink.addEventListener("click", renderLevelThree);

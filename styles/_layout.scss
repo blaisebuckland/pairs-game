@@ -92,11 +92,17 @@ body {
 
 .game {
     height: 80%;
-    margin: 10% auto 10% auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    row-gap: 5%;
+    row-gap: 1%;
+    &__home-btn {
+        text-align: left;
+        position: absolute;
+        top: 40px;
+        left: 40px;
+    }
     &__heading {
         margin-bottom: 5%;
     }
@@ -122,13 +128,13 @@ body {
             grid-template-rows: repeat(4, 100px);
         }
         @media screen and (min-width: 768px) {
-            grid-template-columns: repeat(3, 120px);
-            grid-template-rows: repeat(4, 120px);
+            grid-template-columns: repeat(3, 110px);
+            grid-template-rows: repeat(4, 110px);
             grid-gap: 20px;
         }
         @media screen and (min-width: 991px) {
-            grid-template-columns: repeat(4, 150px);
-            grid-template-rows: repeat(3, 150px);
+            grid-template-columns: repeat(4, 120px);
+            grid-template-rows: repeat(3, 120px);
             grid-gap: 25px;
         }
     }
@@ -176,10 +182,7 @@ body {
         &__heading {
             font-size: 30px;
         }
-        &__subheading {
-            font-size: 25px;
-        }
-        &__moves {
+        &__subheading, &__moves, &__home-btn {
             font-size: 25px;
         }
     }
@@ -187,10 +190,7 @@ body {
         &__heading {
             font-size: 40px;
         }
-        &__subheading {
-            font-size: 25px;
-        }
-        &__moves {
+        &__subheading, &__moves, &__home-btn {
             font-size: 25px;
         }
     }
@@ -198,24 +198,24 @@ body {
         &__heading {
             font-size: 56px;
         }
-        &__subheading {
-            font-size: 30px;
-        }
-        &__moves {
+        &__subheading, &__moves, &__home-btn {
             font-size: 30px;
         }
     }
 }
 
 .body-game--level-one {
+    height: 100vh;
     background-color: $colour-pale-pink;
 }
 
 .body-game--level-two {
+    height: 100vh;
     background-color: $colour-bright-blue;
 }
 
 .body-game--level-three {
+    height: 100vh;
     background-color: $colour-bright-pink;
 }
 
