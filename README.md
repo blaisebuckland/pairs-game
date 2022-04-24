@@ -1,5 +1,5 @@
 # pairs-game
-This is a [memory game](blaisebuckland.github.io/pairs-game/) in which the player must find all the matching pairs to win. There are three difficulty levels, each with its own theme (sweets, cats and Dolly Parton). In the higher levels there are more cards to match and the images on the cards become more difficult to differentiate between.
+This is a [memory game](https://blaisebuckland.github.io/pairs-game/) in which the player must find all the matching pairs to win. There are three difficulty levels, each with its own theme. In the higher levels there are more cards to match and it becomes more difficult to differentiate between the images.
 
 ## Technologies
 * JavaScript
@@ -21,21 +21,21 @@ This is a [memory game](blaisebuckland.github.io/pairs-game/) in which the playe
 
 ## Images
 <img src="https://github.com/blaisebuckland/pairs-game/blob/main/images/game-demo/homepage.png" alt="homepage-image" width=300>
-<img src="https://github.com/blaisebuckland/pairs-game/blob/main/images/game-demo/level-one.png" alt="homepage-image" width=300>
-<img src="https://github.com/blaisebuckland/pairs-game/blob/main/images/game-demo/level-two.png" alt="homepage-image" width=300>
-<img src="https://github.com/blaisebuckland/pairs-game/blob/main/images/game-demo/level-three.png" alt="homepage-image" width=300>
-<img src="https://github.com/blaisebuckland/pairs-game/blob/main/images/game-demo/winning-message.png" alt="homepage-image" width=300>
+<img src="https://github.com/blaisebuckland/pairs-game/blob/main/images/game-demo/level-one.png" alt="level-one-image" width=300>
+<img src="https://github.com/blaisebuckland/pairs-game/blob/main/images/game-demo/level-two.png" alt="level-two-image" width=300>
+<img src="https://github.com/blaisebuckland/pairs-game/blob/main/images/game-demo/level-three.png" alt="level-three-image" width=300>
+<img src="https://github.com/blaisebuckland/pairs-game/blob/main/images/game-demo/winning-message.png" alt="winning-modal-image" width=300>
 
 ## Functionality
-* After level selection, each card is randomly given an image
+* After level selection, each card is randomly given an image from that level's images
 * There are two copies of each image across all the cards
-* The player selects and turns over two cards at a time
+* The player selects and turns over two cards per turn
+* If the cards do not match, they will be turned back over
 * Matched cards remain visible
-* Incorrect guesses will result in the selected cards being flipped back over
 * A counter keeps track of the number of moves the player has made
 * Once all cards have been matched, the player is given the option to play again
 
 ## Links
 * [GitHub repository](https://github.com/blaisebuckland/pairs-game)
-* [The game](blaisebuckland.github.io/pairs-game/)
+* [The game](https://blaisebuckland.github.io/pairs-game/)
 
