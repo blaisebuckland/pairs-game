@@ -4,10 +4,10 @@ const levelTwoLink = document.querySelector("#level-two-link");
 const levelThreeLink = document.querySelector("#level-three-link");
 const mainContainer = document.querySelector(".main");
 const body = document.querySelector(".body");
-let pictureArrLevelOne = ["./images/easy/candy-floss.jpeg", "./images/easy/candy-floss.jpeg", "./images/easy/custard-cream.jpeg", "./images/easy/custard-cream.jpeg","./images/easy/doughnut.webp", "./images/easy/doughnut.webp", "./images/easy/jelly.jpeg", "./images/easy/jelly.jpeg", "./images/easy/macaron.jpeg", "./images/easy/macaron.jpeg", "./images/easy/pancakes.jpeg", "./images/easy/pancakes.jpeg"];
-let pictureArrLevelTwo = ["./images/medium/balinese.jpeg", "./images/medium/balinese.jpeg", "./images/medium/ballet.jpeg", "./images/medium/ballet.jpeg", "./images/medium/emmy.jpeg", "./images/medium/emmy.jpeg", "./images/medium/ginger.jpeg", "./images/medium/ginger.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/hiss.jpeg", "./images/medium/hiss.jpeg","./images/medium/liesl.jpeg", "./images/medium/liesl.jpeg", "./images/medium/maine-coon.jpeg", "./images/medium/maine-coon.jpeg", "./images/medium/moggy.jpeg", "./images/medium/moggy.jpeg", "./images/medium/ragdoll.jpeg", "./images/medium/ragdoll.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/tortoiseshell.jpeg", "./images/medium/tortoiseshell.jpeg"]
-let pictureArrLevelThree = ["./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/dolly.png", "./images/hard/dolly.png", "./images/hard/great-balls-of-fire.jpeg", "./images/hard/great-balls-of-fire.jpeg",
-"./images/hard/heartbreak-express.jpeg", "./images/hard/heartbreak-express.jpeg", "./images/hard/hello-im-dolly.jpeg", "./images/hard/hello-im-dolly.jpeg", "./images/hard/here-you-come-again.jpeg", "./images/hard/here-you-come-again.jpeg", "./images/hard/honky-tonk-angels.jpeg", "./images/hard/honky-tonk-angels.jpeg", "./images/hard/hungry-again.jpeg", "./images/hard/hungry-again.jpeg", "./images/hard/i-believe-in-you.jpeg", "./images/hard/i-believe-in-you.jpeg", "./images/hard/love-is-like-a-butterfly.jpeg", "./images/hard/love-is-like-a-butterfly.jpeg", "./images/hard/rainbow.jpeg", "./images/hard/rainbow.jpeg"]
+let pictureArrLevelOne = ["images/easy/candy-floss.jpeg", "images/easy/candy-floss.jpeg", "images/easy/custard-cream.jpeg", "images/easy/custard-cream.jpeg","images/easy/doughnut.webp", "images/easy/doughnut.webp", "images/easy/jelly.jpeg", "images/easy/jelly.jpeg", "images/easy/macaron.jpeg", "images/easy/macaron.jpeg", "images/easy/pancakes.jpeg", "images/easy/pancakes.jpeg"];
+let pictureArrLevelTwo = ["images/medium/balinese.jpeg", "images/medium/balinese.jpeg", "images/medium/ballet.jpeg", "images/medium/ballet.jpeg", "images/medium/emmy.jpeg", "images/medium/emmy.jpeg", "images/medium/ginger.jpeg", "images/medium/ginger.jpeg", "images/medium/glasses-stars-cat.jpeg", "images/medium/glasses-stars-cat.jpeg", "images/medium/hiss.jpeg", "images/medium/hiss.jpeg","images/medium/liesl.jpeg", "images/medium/liesl.jpeg", "images/medium/maine-coon.jpeg", "images/medium/maine-coon.jpeg", "images/medium/moggy.jpeg", "images/medium/moggy.jpeg", "images/medium/ragdoll.jpeg", "images/medium/ragdoll.jpeg", "images/medium/sleeping-kitten.jpeg", "images/medium/sleeping-kitten.jpeg", "images/medium/tortoiseshell.jpeg", "images/medium/tortoiseshell.jpeg"]
+let pictureArrLevelThree = ["images/hard/a-holly-dolly-christmas.jpeg", "images/hard/a-holly-dolly-christmas.jpeg", "images/hard/all-i-can-do.jpeg", "images/hard/all-i-can-do.jpeg", "images/hard/backwoods-barbie.jpeg", "images/hard/backwoods-barbie.jpeg", "images/hard/blue-smoke.jpeg", "images/hard/blue-smoke.jpeg", "images/hard/dolly.png", "images/hard/dolly.png", "images/hard/great-balls-of-fire.jpeg", "images/hard/great-balls-of-fire.jpeg",
+"images/hard/heartbreak-express.jpeg", "images/hard/heartbreak-express.jpeg", "images/hard/hello-im-dolly.jpeg", "images/hard/hello-im-dolly.jpeg", "images/hard/here-you-come-again.jpeg", "images/hard/here-you-come-again.jpeg", "images/hard/honky-tonk-angels.jpeg", "images/hard/honky-tonk-angels.jpeg", "images/hard/hungry-again.jpeg", "images/hard/hungry-again.jpeg", "images/hard/i-believe-in-you.jpeg", "images/hard/i-believe-in-you.jpeg", "images/hard/love-is-like-a-butterfly.jpeg", "images/hard/love-is-like-a-butterfly.jpeg", "images/hard/rainbow.jpeg", "images/hard/rainbow.jpeg"]
 let cardPack = [];
 let userChoices = [];
 let matchedCards = [];
@@ -61,10 +61,10 @@ const resetForNextGame = () => {
     userChoices = [];
     matchedCards = [];
     numberOfMovesTaken = 0;
-    pictureArrLevelOne = ["./images/easy/candy-floss.jpeg", "./images/easy/candy-floss.jpeg", "./images/easy/custard-cream.jpeg", "./images/easy/custard-cream.jpeg","./images/easy/doughnut.webp", "./images/easy/doughnut.webp", "./images/easy/jelly.jpeg", "./images/easy/jelly.jpeg", "./images/easy/macaron.jpeg", "./images/easy/macaron.jpeg", "./images/easy/pancakes.jpeg", "./images/easy/pancakes.jpeg"];
-    pictureArrLevelTwo = ["./images/medium/balinese.jpeg", "./images/medium/balinese.jpeg", "./images/medium/ballet.jpeg", "./images/medium/ballet.jpeg", "./images/medium/emmy.jpeg", "./images/medium/emmy.jpeg", "./images/medium/ginger.jpeg", "./images/medium/ginger.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/glasses-stars-cat.jpeg", "./images/medium/hiss.jpeg", "./images/medium/hiss.jpeg","./images/medium/liesl.jpeg", "./images/medium/liesl.jpeg", "./images/medium/maine-coon.jpeg", "./images/medium/maine-coon.jpeg", "./images/medium/moggy.jpeg", "./images/medium/moggy.jpeg", "./images/medium/ragdoll.jpeg", "./images/medium/ragdoll.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/sleeping-kitten.jpeg", "./images/medium/tortoiseshell.jpeg", "./images/medium/tortoiseshell.jpeg"]
-    pictureArrLevelThree = ["./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/a-holly-dolly-christmas.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/all-i-can-do.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/backwoods-barbie.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/blue-smoke.jpeg", "./images/hard/dolly.png", "./images/hard/dolly.png", "./images/hard/great-balls-of-fire.jpeg", "./images/hard/great-balls-of-fire.jpeg",
-    "./images/hard/heartbreak-express.jpeg", "./images/hard/heartbreak-express.jpeg", "./images/hard/hello-im-dolly.jpeg", "./images/hard/hello-im-dolly.jpeg", "./images/hard/here-you-come-again.jpeg", "./images/hard/here-you-come-again.jpeg", "./images/hard/honky-tonk-angels.jpeg", "./images/hard/honky-tonk-angels.jpeg", "./images/hard/hungry-again.jpeg", "./images/hard/hungry-again.jpeg", "./images/hard/i-believe-in-you.jpeg", "./images/hard/i-believe-in-you.jpeg", "./images/hard/love-is-like-a-butterfly.jpeg", "./images/hard/love-is-like-a-butterfly.jpeg", "./images/hard/rainbow.jpeg", "./images/hard/rainbow.jpeg"]
+    pictureArrLevelOne = ["images/easy/candy-floss.jpeg", "images/easy/candy-floss.jpeg", "images/easy/custard-cream.jpeg", "images/easy/custard-cream.jpeg","images/easy/doughnut.webp", "images/easy/doughnut.webp", "images/easy/jelly.jpeg", "images/easy/jelly.jpeg", "images/easy/macaron.jpeg", "images/easy/macaron.jpeg", "images/easy/pancakes.jpeg", "images/easy/pancakes.jpeg"];
+    pictureArrLevelTwo = ["images/medium/balinese.jpeg", "images/medium/balinese.jpeg", "images/medium/ballet.jpeg", "images/medium/ballet.jpeg", "images/medium/emmy.jpeg", "images/medium/emmy.jpeg", "images/medium/ginger.jpeg", "images/medium/ginger.jpeg", "images/medium/glasses-stars-cat.jpeg", "images/medium/glasses-stars-cat.jpeg", "images/medium/hiss.jpeg", "images/medium/hiss.jpeg","images/medium/liesl.jpeg", "images/medium/liesl.jpeg", "images/medium/maine-coon.jpeg", "images/medium/maine-coon.jpeg", "images/medium/moggy.jpeg", "images/medium/moggy.jpeg", "images/medium/ragdoll.jpeg", "images/medium/ragdoll.jpeg", "images/medium/sleeping-kitten.jpeg", "images/medium/sleeping-kitten.jpeg", "images/medium/tortoiseshell.jpeg", "images/medium/tortoiseshell.jpeg"]
+    pictureArrLevelThree = ["images/hard/a-holly-dolly-christmas.jpeg", "images/hard/a-holly-dolly-christmas.jpeg", "images/hard/all-i-can-do.jpeg", "images/hard/all-i-can-do.jpeg", "images/hard/backwoods-barbie.jpeg", "images/hard/backwoods-barbie.jpeg", "images/hard/blue-smoke.jpeg", "images/hard/blue-smoke.jpeg", "images/hard/dolly.png", "images/hard/dolly.png", "images/hard/great-balls-of-fire.jpeg", "images/hard/great-balls-of-fire.jpeg",
+    "images/hard/heartbreak-express.jpeg", "images/hard/heartbreak-express.jpeg", "images/hard/hello-im-dolly.jpeg", "images/hard/hello-im-dolly.jpeg", "images/hard/here-you-come-again.jpeg", "images/hard/here-you-come-again.jpeg", "images/hard/honky-tonk-angels.jpeg", "images/hard/honky-tonk-angels.jpeg", "images/hard/hungry-again.jpeg", "images/hard/hungry-again.jpeg", "images/hard/i-believe-in-you.jpeg", "images/hard/i-believe-in-you.jpeg", "images/hard/love-is-like-a-butterfly.jpeg", "images/hard/love-is-like-a-butterfly.jpeg", "images/hard/rainbow.jpeg", "images/hard/rainbow.jpeg"]
 }
 
 // Event listeners
@@ -78,7 +78,7 @@ const levelOne = () => {
     body.classList.remove("body");
     body.classList.remove("body-game--level-two");
     body.classList.remove("body-game--level-three");
-    placeholderImg = "./images/card-backgrounds/sweets.jpg"
+    placeholderImg = "images/card-backgrounds/sweets.jpg"
 mainContainer.innerHTML = 
 `<i class="fa-solid fa-house game__home-btn"></i>
 <h1 class="game__heading">Pairs</h1>
@@ -205,7 +205,7 @@ const levelTwo = () => {
     body.classList.remove("body");
     body.classList.remove("body-game--level-one");
     body.classList.remove("body-game--level-three");
-    placeholderImg = "./images/card-backgrounds/cat.jpeg"
+    placeholderImg = "images/card-backgrounds/cat.jpeg"
 mainContainer.innerHTML = 
 `<i class="fa-solid fa-house game__home-btn"></i>
 <h1 class="game__heading">Pairs</h1>
@@ -336,7 +336,7 @@ const levelThree = () => {
     body.classList.remove("body");
     body.classList.remove("body-game--level-one");
     body.classList.remove("body-game--level-two");
-    placeholderImg = "./images/card-backgrounds/dolly.jpeg";
+    placeholderImg = "images/card-backgrounds/dolly.jpeg";
 mainContainer.innerHTML = 
 `<i class="fa-solid fa-house game__home-btn"></i>
 <h1 class="game__heading">Pairs</h1>
