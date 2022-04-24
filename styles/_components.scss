@@ -12,7 +12,7 @@
 }
 
 .game__container__card--level-three {
-    border: 2px solid $colour-bright-blue;   
+    border-color: $colour-bright-blue;   
     background-image: url(../images/card-backgrounds/dolly.jpeg);
 }
 
@@ -28,8 +28,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-
+    background-color: rgba(0,0,0,0.4);
     &__content {
         position: relative;
         top: 15%;
@@ -46,7 +45,6 @@
         border: 2px solid $colour-black;
         border-radius: 20px;
         box-shadow: rgba(36, 34, 36, 0.35) 0px 5px 15px;
-        
         &__close {
             color: #aaa;
             margin-left: auto;
@@ -60,7 +58,6 @@
           text-decoration: none;
           cursor: pointer;
         }
-
         &__heading {
             font-size: 35px;
             font-family: 'Ms Madi', cursive;
@@ -91,7 +88,6 @@
                 cursor: pointer;
             }
         }
-
         @media screen and (min-width: 480px) {
             width: 40%;
             height: 70%;
@@ -105,7 +101,6 @@
                 font-size: 25px;
                 &__item {
                     width: 130px;
-                    font-size: 20px;
                 }
             }
         }
