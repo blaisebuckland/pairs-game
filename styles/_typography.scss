@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&family=Noto+Serif+Display:wght@300&display=swap');
+
+* {
+    $font-family: 'Noto Serif Display', serif;
+    text-align: center;
+    color: $colour-black;
+    font-size: 22px;
+}
+h1 {
+    font-size: 35px;
+}
+li {
+    font-size: 20px;
+}
+
+.modal-content__heading {
+    font-family: 'Ms Madi', cursive;
+}
+
+
+@media screen and (min-width: 480px) {
+    * {
+        font-size: 25px;
+    }
+    h1 {
+        font-size: 37px;
+    }
+    
+    li {
+        width: 130px;
+        font-size: 20px;
+    }
+}
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 40px;
+    }
+}
+@media screen and (min-width: 991px) {
+    * {
+        font-size: 30px;
+    }
+    h1 {
+        font-size: 56px;
+    }
+    li {
+        width: 140px;
+        font-size: 25px;
+    }
+}

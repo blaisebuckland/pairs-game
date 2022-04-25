@@ -15,3 +15,7 @@ $colour-bright-blue: #46B5BC;
     color: $colour-black;
     text-align: center;
 }
+
+.disabled {
+    pointer-events: none;
+}
