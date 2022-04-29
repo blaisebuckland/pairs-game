@@ -82,7 +82,7 @@ const renderGame = () => {
     mainContainer.innerHTML = 
         `<i class="fa-solid fa-house home-btn"></i>
         <h1 class="game__heading">Pairs</h1>
-        <p class="game__subheading">Level One</p>
+        <p class="game__subheading"></p>
         <section class="container container--level-one">
         </section>
         <p class="moves"> Moves: 0</p>
@@ -101,22 +101,26 @@ const renderGame = () => {
         </div>
         `
     let gameContainer = document.querySelector(".container")
+    const levelTitle = document.querySelector(".game__subheading")
     if (body.classList.contains("body-game--level-one")) {
-        gameContainer.classList.add("container--level-one")
+        gameContainer.classList.add("container--level-one");
+        levelTitle.innerText = "Level One";
         pictureArr = pictureArrLevelOne;
         pictureArr.forEach((picture) => {
             gameContainer.innerHTML += `<div class="container__card container__card--level-one"></div>`
             })
     }
     if (body.classList.contains("body-game--level-two")) {
-        gameContainer.classList.add("container--level-two")
+        gameContainer.classList.add("container--level-two");
+        levelTitle.innerText = "Level Two";
         pictureArr = pictureArrLevelTwo;
         pictureArr.forEach((picture) => {
             gameContainer.innerHTML += `<div class="container__card container__card--level-two"></div>`
             })
     }
     if (body.classList.contains("body-game--level-three")) {
-        gameContainer.classList.add("container--level-three")
+        gameContainer.classList.add("container--level-three");
+        levelTitle.innerText = "Level Three";
         pictureArr = pictureArrLevelThree;
         pictureArr.forEach((picture) => {
             gameContainer.innerHTML += `<div class="container__card container__card--level-three"></div>`
@@ -179,6 +183,10 @@ const renderGame = () => {
             setTimeout(flipCardsBack, 1000)
         }
     }
+    const gameOver = () => {
+        modal.style.display = "block";
+        resetForNextGame();
+    }
     cardsArr.forEach((card) => {
         // give each card/div a different picture from the images array
         let randomNumber = Math.floor(Math.random()*(pictureArr.length));
@@ -195,19 +203,14 @@ const renderGame = () => {
             if (body.classList.contains("body-game--level-one") && matchedCards.length == 12) {
                 setTimeout(gameOver, 1000);
             }
-            if (body.classList.contains("body-game--level-two") && matchedCards.length == 26) {
+            if (body.classList.contains("body-game--level-two") && matchedCards.length == 24) {
                 setTimeout(gameOver, 1000);
             }
-            if (body.classList.contains("body-game--level-one") && matchedCards.length == 28) {
+            if (body.classList.contains("body-game--level-three") && matchedCards.length == 28) {
                 setTimeout(gameOver, 1000);
             }
         })
     })
-
-const gameOver = () => {
-    modal.style.display = "block";
-    resetForNextGame();
-}
 }
 
 // Event listeners
